@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="en-gb" http-equiv="Content-Language" />
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Blog Feed" />
+	<link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Blog Feed" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />	
+
+	<title>{{ page.title }}</title>
+	<!-- <link rel="stylesheet" type="text/css" href="/css/normalize.css" /> -->
+	<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+	<link rel="shortcut icon" href="/img/favicon.ico" />
+</head>
+<body>
+	<div id="wrapper">	
+		<div id="header">
+			<div class="title">
+				<div><a class="name" href="/index.html">Michał Sakowicz</a></div>
+			</div>
+			<div class="navbar">
+				<div>
+					<ul id="menu">
+						<li><a href="/rss.xml">RSS</a></li>
+						<li><a id="menu-mail">Contact</a></li>
+						<li><a href="/about.html">About</a></li>
+						<!-- <li><a href="/index.html">Home</a></li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			{{content}}
+		</div>
+<!-- 		<div id="footer">
+			&copy; {{ date: "%Y" }} Michał Sakowicz
+		</div> -->
+	</div>
+</body>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var m;m='msa';m+='ko';m+='wi';m+='cz.con';m+='tact@gm';m+='ail.co';m+='m';if($menu=document.getElementById('menu-mail')){$menu.href='mailto:'+m}if($about=document.getElementById('about-mail')){$about.href='mailto:'+m}
+/* ]]> */
+</script>
+
+<!--
+<script type="text/javascript">
+/* <![CDATA[ */
+	var m;
+	m='msa';
+	m+='ko';
+	m+='wi';
+	m+='cz.con';
+	m+='tact@gm';
+	m+='ail.co';
+	m+='m';
+
+	if($menu = document.getElementById('menu-mail')) {
+		$menu.href = 'mailto:'+m;
+	}
+
+	if($about = document.getElementById('about-mail')) {
+		$about.href = 'mailto:'+m;
+	}
+/* ]]> */
+</script>
+-->
+
+
+
+<script src="//static.getclicky.com/js" type="text/javascript"></script>
+<script type="text/javascript">try{ clicky.init(66616638); }catch(e){}</script>
+
+</html>
