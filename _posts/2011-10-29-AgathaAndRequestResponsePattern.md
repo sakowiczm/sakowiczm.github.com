@@ -17,7 +17,7 @@ Simple right? Sure – that is why I was surprised when I’ve read about framew
 
 <pre><code class="cs">namespace Sample.ServiceLayer.Handlers
 {
-    public class HelloWorldHandler : RequestHandler<HelloWorldRequest, HelloWorldResponse>
+    public class HelloWorldHandler : RequestHandler&lt;HelloWorldRequest, HelloWorldResponse&gt;
     {
         public override Response Handle(HelloWorldRequest request)
         {

@@ -53,7 +53,7 @@ def PrintHello(name):
     ScriptSource source = engine.CreateScriptSourceFromString(printHello, SourceCodeKind.Statements);
     source.Execute(scope);
 
-    var fPrintHello = scope.GetVariable<Func<string, string>>("PrintHello");
+    var fPrintHello = scope.GetVariable&lt;Func&lt;string, string&gt;&gt;("PrintHello");
 
     var result = fPrintHello("Michal");          
 
@@ -88,8 +88,8 @@ def Add(a, b):
 
     // prepare our rules
     dynamic dynamicRules = new ExpandoObject();
-    var rules = dynamicRules as IDictionary<string, dynamic>;
-    rules.Add("GetValue", (Func<int>)GetValue);
+    var rules = dynamicRules as IDictionary&lt;string, dynamic&gt;;
+    rules.Add("GetValue", (Func&lt;int&gt;)GetValue);
 
     scope.SetVariable("RULE", dynamicRules);
 
