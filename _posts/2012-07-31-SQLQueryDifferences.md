@@ -22,7 +22,7 @@ To be able to reuse existing plan (or increase chances to do so) you can use:
 or go and switch of below flag in SQL Management Studio:
 
 <center>
-![SET ARITHABORT setting in MS SQL Management Studio](/img/posts/2012-07-30-SQLQueryDifferences2.png)
+<img title="SET ARITHABORT setting in MS SQL Management Studio" src="/img/posts/2012-07-31-SQLQueryDifferences1.png" alt="SET ARITHABORT setting in MS SQL Management Studio" />
 </center>
 
 [1]: http://msdn.microsoft.com/en-us/library/aa259212(v=sql.80).aspx 
