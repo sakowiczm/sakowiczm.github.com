@@ -11,7 +11,7 @@ Other way to get it is to use [sys.dm_exec_requests][1] view to obtain plan hand
  
 <pre><code class="sql">SELECT * FROM sys.dm_exec_query_plan(0x050001003B644F5A40015286000000000000000000000000)</code></pre>
 
-We can get xml content of *query_plan* column and paste it to new file with extension *.sqlplan. 
+We can get xml content of *query_plan* column and paste it to new file with extension \*.sqlplan. 
 Now we can double click it and we will get graphical representation of the plan in SQL Management Studio.
  
 The 0x0500... is actual plan handle obtained from the first view. View [sys.dm_exec_requests][1] holds all actually executed requests - it might be a bit of a problem to determine which entry represent our running query. Column *command* might be helpful to narrow the search as it determines type of command (SELECT, INSERT etc.). What I like to do when I work in SQL Management Studio is to first obtain session id of window in which I'll run long running query using:
@@ -45,9 +45,9 @@ CROSS APPLY
 CROSS APPLY
     sys.dm_exec_query_plan(r.[plan_handle]) AS p
 WHERE
-    r.session_id <> @@SPID
+    r.session_id &lt;&gt; @@SPID
     AND 
-    r.session_id > 50
+    r.session_id &gt; 50
 </code></pre>
  
  
