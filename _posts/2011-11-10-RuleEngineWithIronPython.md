@@ -26,7 +26,8 @@ To embed Python in .NET app it’s enough to reference following assemblies:
  
 And type two lines of code, like below, to execute you first script:
 
-<pre><code class="cs">[Test]
+``` csharp
+[Test]
 public void SimpleExecutionTest()
 {
     ScriptEngine engine = Python.CreateEngine();
@@ -35,11 +36,12 @@ public void SimpleExecutionTest()
 
     Assert.IsTrue(result == 4);  
 }
-</code></pre>
+```
 
 This is just simple evaluator - execution of something a bit more complicated let say mixing Python method and C# code, can be achieved like this:
 
-<pre><code class="cs">[Test]
+``` csharp
+[Test]
 public void PassingParameterTest()
 {
     ScriptEngine engine = Python.CreateEngine();
@@ -53,15 +55,15 @@ def PrintHello(name):
     ScriptSource source = engine.CreateScriptSourceFromString(printHello, SourceCodeKind.Statements);
     source.Execute(scope);
 
-    var fPrintHello = scope.GetVariable&lt;Func&lt;string, string&gt;&gt;("PrintHello");
+    var fPrintHello = scope.GetVariable<Func<string, string>>("PrintHello");
 
     var result = fPrintHello("Michal");          
 
     Assert.IsTrue(result == "Hello Michal");
 }
-</code></pre>
+```
 
-After instantiation of necessary objects - ScriptingEngine, ScriptScope etc. about them in a moment, compile a Python method, obtain function delegate from ScriptScope and execute it.
+After instantiation of necessary objects - `ScriptingEngine`, `ScriptScope` etc. about them in a moment, compile a Python method, obtain function delegate from ScriptScope and execute it.
  
 There is four main classes that we need to work with IronPython or any language based on DLR for that matter:
  
@@ -75,7 +77,8 @@ There is four main classes that we need to work with IronPython or any language 
  
 During integration of Python into the project one of the focuses was ability to reuse library of existing domain functions written in C# without burdening a user with knowledge about references, modules etc. How I choose to solve this problem was using ExpandoObject as a vessel for passing rule delegates into Python script. Let’s look at following example:
 
-<pre><code class="cs">[Test]
+``` csharp
+[Test]
 public void MixingPythonWithCSharpMethodTest()
 {
     ScriptEngine engine = Python.CreateEngine();
@@ -88,8 +91,8 @@ def Add(a, b):
 
     // prepare our rules
     dynamic dynamicRules = new ExpandoObject();
-    var rules = dynamicRules as IDictionary&lt;string, dynamic&gt;;
-    rules.Add("GetValue", (Func&lt;int&gt;)GetValue);
+    var rules = dynamicRules as IDictionary<string, dynamic>;
+    rules.Add("GetValue", (Func<int>)GetValue);
 
     scope.SetVariable("RULE", dynamicRules);
 
@@ -105,15 +108,16 @@ def Add(a, b):
 
     Assert.IsTrue(result == 10);
 }
-</code></pre>
+```
 
 There are two important things here: first script defines function Add which sums two parameters a and b and third value that is obtained from C# function called GetValue(). GetValue in this example is as simple as it can get:
 
-<pre><code class="cs">public int GetValue()
+``` csharp
+public int GetValue()
 {
     return 4;
 }
-</code></pre>
+```
 
 Keyword RULE is global variable that we defined as ExpandoObject and passed to ScriptScope which is used to execute script. ExpandoObject holds delegates to functions we want to use in Python method.
 It is possible to use dictionary or some other predefined object - instead Expando but first I think that syntax: variable.function(parameters) fit nicely with Python. Secondly we can add properties dynamically which in case of hundreds built in rules can come in handy. Just add some script analyzer and pass only delegates of required functions.

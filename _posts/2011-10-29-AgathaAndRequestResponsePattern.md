@@ -15,27 +15,31 @@ Request/Response pattern is very simple pattern that can make our life easier wh
 
 Simple right? Sure – that is why I was surprised when I’ve read about framework that was described as a ‘Request/Response Service Layer’. Why the strait forward pattern needs a framework? Is this one of those projects that were created just for sake of creating it? I was almost ready to close the page when I saw a little bit of code that I sub conscience liked:
 
-<pre><code class="cs">namespace Sample.ServiceLayer.Handlers
+``` csharp
+namespace Sample.ServiceLayer.Handlers
 {
-    public class HelloWorldHandler : RequestHandler&lt;HelloWorldRequest, HelloWorldResponse&gt;
-    {
-        public override Response Handle(HelloWorldRequest request)
-        {
-            var response = CreateTypedResponse();
-            response.Message = "Hello World!";
-            return response;
-        }
-    }
-}</code></pre>
+    public class HelloWorldHandler : RequestHandler<HelloWorldRequest, HelloWorldResponse>
+    {
+        public override Response Handle(HelloWorldRequest request)
+        {
+            var response = CreateTypedResponse();
+            response.Message = "Hello World!";
+            return response;
+        }
+    }
+}
+```
 
 One class one operation? Interesting I must admit most services which I was working with – looked like bunch different procedures putted in the same file – procedural, ugly hard to read and understand. Is this possibly a solution?
 
 Please meet Agatha – she will make your life easier or not – depends your preferences. So what this framework is doing? – simply it’s request dispatcher. There is predefined contract with one operation:
 
-<pre><code class="cs">public interface IRequestProcessor : IDisposable
+``` csharp
+public interface IRequestProcessor : IDisposable
 {
-    Response[] Process(params Request[] requests);
-}</code></pre>
+    Response[] Process(params Request[] requests);
+}
+```
 
 All messages are send to this operation – and Agatha based on request object type is routing it to specific handler. Basic sample can be found here. So what we gain:
 

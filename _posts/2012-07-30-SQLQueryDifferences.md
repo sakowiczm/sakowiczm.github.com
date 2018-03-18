@@ -9,10 +9,8 @@ Recently I had an issue where exactly the same query was working fine form SQL M
  
 By default connection settings are set like this:
 
-<center>
-<img title="Default connection settings" src="/img/posts/2012-07-30-SQLQueryDifferences1.png" alt="Default connection settings" />
-</center>
- 
+![Default connection settings](/img/posts/2012/2012-07-30-SQLQueryDifferences1.png){: .center-image .img-responsive }
+
 The ARITHABORT flag is always different – so if you copy a query form application and execute it inside Management Studio – most likely different plan will be generated - because of different input parameters (parameter sniffing).
  
 To be able to reuse existing plan (or increase chances to do so) you can use:
@@ -21,8 +19,6 @@ To be able to reuse existing plan (or increase chances to do so) you can use:
  
 or go and switch of below flag in SQL Management Studio:
 
-<center>
-<img title="SET ARITHABORT setting in MS SQL Management Studio" src="/img/posts/2012-07-30-SQLQueryDifferences2.png" alt="SET ARITHABORT setting in MS SQL Management Studio" />
-</center>
+![SET ARITHABORT setting in MS SQL Management Studio](/img/posts/2012/2012-07-30-SQLQueryDifferences2.png){: .center-image .img-responsive }
 
 [1]: http://msdn.microsoft.com/en-us/library/aa259212(v=sql.80).aspx 

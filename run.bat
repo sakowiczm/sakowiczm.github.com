@@ -1,0 +1,1 @@
+docker run --rm --label=jekyll --volume=%cd%:/srv/jekyll -it -p 127.0.0.1:4000:4000 -e POLLING=true jekyll/jekyll jekyll serve --watch --incremental --force_polling

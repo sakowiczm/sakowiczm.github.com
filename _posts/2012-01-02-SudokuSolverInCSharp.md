@@ -9,21 +9,15 @@ Another breakable toy, my variation of Sudoku solver. I've created it without pr
  
 Ok. let's start, from having a Sudoku that we want to solve:
 
-<center>
-<img title="Example Sudoku" src="/img/posts/2011-01-02-sudoku_thumb.png" alt="Example Sudoku" width="453" height="437" border="0" />
-</center>
+![Example Sudoku](/img/posts/2011/2011-01-02-sudoku_thumb.png){: .center-image .img-responsive }
 
 After a little consideration I decided to solve it by elimination of possible values. Let's consider first block (by block I mean inner 3x3 cells squares), possible values for empty cells:
 
-<center>
-<img src="/img/posts/2011-01-02-table1.png" border="0" />
-</center>
+![](/img/posts/2011/2011-01-02-table1.png){: .center-image .img-responsive }
 
 We can see that value 1 can be only in A1 cell so fill it in. Check remaining cells and no single value in a row or column. So we evaluate next block:
 
-<center>
-	<img src="/img/posts/2011-01-02-table2.png" border="0" />
-</center>
+![](/img/posts/2011/2011-01-02-table2.png){: .center-image .img-responsive }
 
 Now value 1 and 6 are only possible in cells B5 and B4 so we fill them in. Check remaining cells after reduction - no single possible values - we go to the next block. 
  

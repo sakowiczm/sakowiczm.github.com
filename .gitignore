@@ -1,2 +1,5 @@
-_site/
-Pretzel.exe
+_site
+node_modules
+Gemfile.lock
+.sass-cache
+*.gem

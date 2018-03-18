@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<div class="index container py-4">
+
+  {% for post in site.posts %}
+
+  <div class="row">
+      <div class="col-12 col-sm-8 col-md-6"><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">{{ post.title }}</a></div>
+      <div class="col-md-3 text-right d-none d-md-block"></div>
+      <div class="col-sm-4 col-md-3 d-none d-sm-block text-right date align-self-center">{{ post.date | date: '%d %B, %Y' }}</div>
+  </div>   
+  
+  {% endfor %}
+
+</div>

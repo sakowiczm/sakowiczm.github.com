@@ -1,2 +1,31 @@
-pretzel: 
-    engine: liquid
+title:             
+email:             msakowicz.contact@gmail.com
+description:       
+author:            Michał Sakowicz
+baseurl:           "/"
+url:               "http://michalsakowicz.com"
+
+social:
+  name: Michał Sakowicz
+  links:
+    - https://www.twitter.com/sakowiczm
+    - https://www.linkedin.com/in/michalsakowicz
+    - https://github.com/sakowiczm
+  
+markdown:          kramdown
+paginate:          5
+paginate_path:     "/posts/page:num/"
+plugins:
+  - jekyll-paginate
+  - rouge
+  - jekyll-seo-tag
+
+#highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highligher: rouge
+
+exclude: [README.md, docker-compose.yml, run.bat]
+
+repository: sakowiczm/sakowiczm.github.com
