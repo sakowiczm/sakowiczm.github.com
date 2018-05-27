@@ -2,7 +2,7 @@
 layout: post
 title: Visual Studio extensions issues
 comments: true
-date: 2018-05-29
+date: 2018-05-26
 ---
 
 Imagine situation you've just installed new shiny extension to your Visual Studio 2017 - you restart and ... nothing happens VS is not starting. What to do?
